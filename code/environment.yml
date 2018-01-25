@@ -1,0 +1,23 @@
+name: phd
+channels:
+- conda-forge
+dependencies:
+- cartopy
+- cached-property
+- ipykernel
+- iris
+- lagranto
+- matplotlib
+- metpy
+- numpy
+- pandas
+- path.py
+- python=3.6
+- pytest
+- scipy
+- tqdm
+- xarray
+- pip:
+  - daiquiri
+  - latlon23
+  - git+https://github.com/dennissergeev/arke.git
