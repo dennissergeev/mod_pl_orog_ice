@@ -1,4 +1,4 @@
-name: phd
+name: mplosi
 channels:
 - conda-forge
 dependencies:
