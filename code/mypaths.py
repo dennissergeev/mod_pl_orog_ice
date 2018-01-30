@@ -17,7 +17,7 @@ textdir = topdir/'text'
 trackdir = topdir/'data'/'tracks'
 
 # Output directories
-plotdir = textdir/'figures'
+plotdir = topdir/'figures'
 
 # UM
 extdir = Path('/media')/os.getenv('USER')/'Elements'/'phd'
