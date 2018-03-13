@@ -4,6 +4,7 @@ Various plotting functions
 """
 import matplotlib as mpl
 from matplotlib.offsetbox import AnchoredText
+import matplotlib.pyplot as plt
 import numpy as np
 import string
 
@@ -12,6 +13,7 @@ import arke
 import misc_utils as misc
 
 
+cc = plt.rcParams['axes.prop_cycle']
 CBARKW = dict(orientation='vertical')
 
 
@@ -106,7 +108,7 @@ def plotter(fig, axgr, mapkey, vrbls2plot, geoax=False):
                         fcst_per.convert_units('hours')
             ax_lab = next(ax_labels)
             txt = (f'({ax_lab}) {_dt:%b %d %Y}\n{_dt:%H%M}UTC'
-                   ' (+{fcst_per.points[0]:.0f}h)')
+                   f' (+{fcst_per.points[0]:.0f}h)')
             at = AnchoredText(txt, prop=dict(size=16), frameon=True, loc=2)
             ax.add_artist(at)
 
