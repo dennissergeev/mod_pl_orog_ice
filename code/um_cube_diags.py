@@ -51,7 +51,7 @@ def compute(cubelist, diag, date_time=None, cnstr=iris.Constraint(),
             cubes = _get_required_cubes(cubelist, only_u_and_v, **kwargs)
         _u = cubes['u']
 
-        cubes['v'] = cubes['v'].regridded(cubes['u'])
+        cubes['v'] = cubes['v'].regrid(cubes['u'], iris.analysis.Linear())
         if unrotatewinds:
             cubes['u'], cubes['v'] = unrotate_uv(cubes['u'], cubes['v'])
         if cubes['u'].ndim < 3:
@@ -171,7 +171,8 @@ def compute(cubelist, diag, date_time=None, cnstr=iris.Constraint(),
         t = extract_as_single_cube(cubelist,
                                    'air_temperature')
         sst = extract_as_single_cube(cubelist,
-                                     'surface_temperature').regridded(t).copy()
+                                     'surface_temperature')
+        sst = sst.regrid(t)
         sst.data = np.ma.masked_less(sst.data, 271.35)
         cubes = []
         for cube in (t, sst):
@@ -188,7 +189,8 @@ def compute(cubelist, diag, date_time=None, cnstr=iris.Constraint(),
         AF = AtmosFlow(**cubes, cartesian=False)
         t = AF.theta
         sst = extract_as_single_cube(cubelist,
-                                     'surface_temperature').regridded(t).copy()
+                                     'surface_temperature')
+        sst = sst.regrid(t, iris.analysis.Linear())
         sst.data = np.ma.masked_less(sst.data, 271.35)
         cubes = []
         for cube in (t, sst):

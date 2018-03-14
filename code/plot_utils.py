@@ -2,6 +2,7 @@
 """
 Various plotting functions
 """
+import cartopy.crs as ccrs
 import matplotlib as mpl
 from matplotlib.offsetbox import AnchoredText
 import matplotlib.pyplot as plt
@@ -14,7 +15,25 @@ import misc_utils as misc
 
 
 cc = plt.rcParams['axes.prop_cycle']
+# Common plotting settings
 CBARKW = dict(orientation='vertical')
+AXGR_KW = dict(axes_pad=0.2,
+               cbar_location='right',
+               cbar_mode='single',
+               cbar_pad=0.2,
+               cbar_size='3%')
+mstart_kw = dict(marker='x', ms=8)
+mfin_kw = dict(marker='o', mfc='w', ms=8)
+# Common cartopy settings
+map_kw = dict(transform=ccrs.PlateCarree())
+COAST = dict(scale='50m', alpha=0.5,
+             edgecolor='#333333', facecolor='#AAAAAA')
+clon = 10
+clat = 76
+extent = [-14, 33, 68, 83]
+LCC_KW = dict(clon=clon, clat=clat, coast=COAST, extent=extent,
+              ticks=None)
+
 
 
 def plotter(fig, axgr, mapkey, vrbls2plot, geoax=False):
