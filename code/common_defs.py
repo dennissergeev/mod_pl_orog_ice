@@ -5,6 +5,8 @@ Common objects for MPLOSI paper
 import arke
 
 
+UM_TIME_FMT = '%Y%m%dT%H%MZ'
+
 um_res = arke.units.GrdStep('km2p2')
 
 hours = dict(STARS72=[15, 27, 39],
@@ -19,3 +21,7 @@ pl_cases = dict(
 )
 
 fcst_strs = [*pl_cases.values()]
+
+runs = ('ctrl', 'nosva', 'sva200', 'ice76n', 'ice82n')
+
+rad = 150

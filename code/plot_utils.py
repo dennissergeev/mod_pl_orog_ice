@@ -109,8 +109,8 @@ def plotter(fig, axgr, mapkey, vrbls2plot, geoax=False):
                     if isinstance(cbar, dict) and not cbar_ready:
                         CBARKW.update(cbar)
                         cb = fig.colorbar(p, cax=cax, **CBARKW)
-                        cb.ax.set_title(scl_str) #, fontsize=18)
-                        # cb.ax.tick_params(labelsize=16)
+                        cb.ax.set_title(scl_str, fontsize='xx-large')
+                        cb.ax.tick_params(labelsize='x-large')
                         cbar_ready = True
                         ttl.append(icube.attributes["_cf_name"])
                     else:
@@ -128,15 +128,8 @@ def plotter(fig, axgr, mapkey, vrbls2plot, geoax=False):
             ax_lab = next(ax_labels)
             txt = (f'({ax_lab}) {_dt:%b %d %Y}\n{_dt:%H%M}UTC'
                    f' (+{fcst_per.points[0]:.0f}h)')
-            at = AnchoredText(txt, frameon=True, loc=2) # prop=dict(size=16), 
+            at = AnchoredText(txt, frameon=True, loc=2, prop=dict(size='large')) 
             ax.add_artist(at)
-
-            if count == 0 and nn == 0 and False:
-                txt = '\n'.join(ttl)
-                at = AnchoredText(txt, frameon=False, # prop=dict(size=12), 
-                                  loc=3, bbox_to_anchor=(0., 1.),
-                                  bbox_transform=ax.transAxes)
-                ax.add_artist(at)
 
 
 def div_cmap(numcolors=11, name='bwr_div_cmap',
