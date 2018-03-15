@@ -57,8 +57,8 @@ def plotter(fig, axgr, mapkey, vrbls2plot, geoax=False):
                             dx = u.attributes['um_res'].to_flt('km')
                             x = np.arange(u.shape[1]) * dx
                             y = np.arange(u.shape[0]) * dx
-                            ax.set_xlabel('Distance along x-axis, km', fontsize=10)
-                            ax.set_ylabel('Distance along y-axis, km', fontsize=10)
+                            ax.set_xlabel('Distance along x-axis, km') # , fontsize=10)
+                            ax.set_ylabel('Distance along y-axis, km') # , fontsize=10)
                             ax.set_xlim(x.min(), x.max())
                             ax.set_ylim(y.min(), y.max())
                         kw = u.attributes.get('plt_kw', {})
@@ -98,8 +98,8 @@ def plotter(fig, axgr, mapkey, vrbls2plot, geoax=False):
                         dx = icube.attributes['um_res'].to_flt('km')
                         x = np.arange(icube.shape[1]) * dx
                         y = np.arange(icube.shape[0]) * dx
-                        ax.set_xlabel('Distance along x-axis, km', fontsize=10)
-                        ax.set_ylabel('Distance along y-axis, km', fontsize=10)
+                        ax.set_xlabel('Distance along x-axis, km') # , fontsize=10)
+                        ax.set_ylabel('Distance along y-axis, km') # , fontsize=10)
                         ax.set_xlim(x.min(), x.max())
                         ax.set_ylim(y.min(), y.max())
                     kw = icube.attributes.get('plt_kw', {})
@@ -109,8 +109,8 @@ def plotter(fig, axgr, mapkey, vrbls2plot, geoax=False):
                     if isinstance(cbar, dict) and not cbar_ready:
                         CBARKW.update(cbar)
                         cb = fig.colorbar(p, cax=cax, **CBARKW)
-                        cb.ax.set_title(scl_str, fontsize=18)
-                        cb.ax.tick_params(labelsize=16)
+                        cb.ax.set_title(scl_str) #, fontsize=18)
+                        # cb.ax.tick_params(labelsize=16)
                         cbar_ready = True
                         ttl.append(icube.attributes["_cf_name"])
                     else:
@@ -128,12 +128,12 @@ def plotter(fig, axgr, mapkey, vrbls2plot, geoax=False):
             ax_lab = next(ax_labels)
             txt = (f'({ax_lab}) {_dt:%b %d %Y}\n{_dt:%H%M}UTC'
                    f' (+{fcst_per.points[0]:.0f}h)')
-            at = AnchoredText(txt, prop=dict(size=16), frameon=True, loc=2)
+            at = AnchoredText(txt, frameon=True, loc=2) # prop=dict(size=16), 
             ax.add_artist(at)
 
             if count == 0 and nn == 0 and False:
                 txt = '\n'.join(ttl)
-                at = AnchoredText(txt, prop=dict(size=12), frameon=False,
+                at = AnchoredText(txt, frameon=False, # prop=dict(size=12), 
                                   loc=3, bbox_to_anchor=(0., 1.),
                                   bbox_transform=ax.transAxes)
                 ax.add_artist(at)
