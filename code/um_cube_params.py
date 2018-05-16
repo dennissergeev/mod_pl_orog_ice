@@ -55,7 +55,7 @@ pv_cmap.set_over('#330000')
 pv_cmap.set_under('#000033')
 
 precip_cmap = plt.cm.cool
-precip_cmap.set_over('#330055')
+precip_cmap.set_over('#6600DD')
 
 temp_cmap = plt.cm.YlGnBu_r
 temp_cmap.set_over('#FFFFEE')
