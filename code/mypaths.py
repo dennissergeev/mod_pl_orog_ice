@@ -5,10 +5,10 @@ Paths to data
 Depends on path.py package
 """
 import os
-from path import Path
+from pathlib import Path
 
 # Top-level directory containing code and data
-topdir = Path('.').abspath().parent
+topdir = Path('.').absolute().parent
 
 # Text directory
 textdir = topdir/'text'
