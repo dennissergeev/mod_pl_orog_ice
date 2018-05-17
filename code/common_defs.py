@@ -25,3 +25,12 @@ fcst_strs = [*pl_cases.values()]
 runs = ('ctrl', 'nosva', 'sva200', 'ice76n', 'ice82n')
 
 rad = 150
+
+toponyms = [
+    dict(name='Svalbard', lon=14, lat=79),
+    dict(name='Greenland', lon=-21, lat=80),
+    dict(name='Norway', lon=23, lat=70),
+    dict(name='Fram Strait', lon=-5, lat=79),
+    dict(name='Barents\nSea', lon=25, lat=73),
+    dict(name='Norwegian\nSea', lon=5, lat=70)
+]
