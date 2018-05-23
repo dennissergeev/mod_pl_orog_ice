@@ -172,7 +172,7 @@ def compute(cubelist, diag, date_time=None, cnstr=iris.Constraint(),
                                    'air_temperature')
         sst = extract_as_single_cube(cubelist,
                                      'surface_temperature')
-        sst = sst.regrid(t)
+        sst = sst.regrid(t, iris.analysis.Linear())
         sst.data = np.ma.masked_less(sst.data, 271.35)
         cubes = []
         for cube in (t, sst):
