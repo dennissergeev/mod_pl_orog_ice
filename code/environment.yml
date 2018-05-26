@@ -11,7 +11,9 @@ dependencies:
 - metpy
 - numpy
 - pandas
+- pytables
 - python=3.6
+- python-stratify
 - pytest
 - scipy
 - tqdm
