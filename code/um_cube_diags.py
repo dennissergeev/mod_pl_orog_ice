@@ -148,9 +148,9 @@ def compute(cubelist, diag, date_time=None, cnstr=iris.Constraint(),
         cube.rename(CUBE_PARAMS[diag]['_cf_name'])
     elif diag == 'precip':
         rain = extract_as_single_cube(cubelist,
-                                      'stratiform_rainfall_rate')
+                                      CUBE_PARAMS['rainrate']['_cf_name'])
         snow = extract_as_single_cube(cubelist,
-                                      'stratiform_snowfall_rate')
+                                      CUBE_PARAMS['snowrate']['_cf_name'])
         cube = rain + snow
         if isinstance(date_time, datetime.datetime):
             t_cnstr = iris.Constraint(time=nearest_tval(cube,

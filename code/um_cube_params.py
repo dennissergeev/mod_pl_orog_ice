@@ -289,7 +289,7 @@ CUBE_PARAMS = {
           # 'colorbar': {extend='neither', ticks=[140, 170, 200, 230]},
          },
 'rainrate': {
-           '_cf_name': 'stratiform_rainfall_rate',
+           '_cf_name': 'stratiform_rainfall_flux',
            'plt_method': 'contourf',
            'plt_kw': dict(cmap=precip_cmap, extend='max', levels=[0.1, 1.0, 1.5, 1.75, 2.0]),
            'exp_diff_kw': dict(levels=[1.0, 2.0], extend='max'),
@@ -297,7 +297,7 @@ CUBE_PARAMS = {
            'scl': 1e3,
           },
 'snowrate': {
-           '_cf_name': 'stratiform_snowfall_rate',
+           '_cf_name': 'stratiform_snowfall_flux',
            'plt_method': 'contourf',
            'plt_kw': dict(cmap=precip_cmap, extend='max', levels=[0.1, 1.0, 1.5, 1.75, 2.0]),
            'exp_diff_kw': dict(levels=[1.0, 2.0], extend='max'),
@@ -344,7 +344,7 @@ CUBE_PARAMS = {
           #'plt_kw': dict(levels=np.arange(200, 400, 5), colors='C1'),
           #'clabels': dict(inline=1, fmt='%1.0f', fontsize=12, colors='C1'),
           'plt_method': 'contourf',
-          'plt_kw': dict(levels=np.arange(225, 246, 3), cmap=temp_cmap, extend='both'),
+          'plt_kw': dict(levels=np.arange(222, 241, 3), cmap=temp_cmap, extend='both'),
           'colorbar': {},
           'exp_diff_kw': dict(levels=[250, 255, 260, 265]),
           'ma_out': (200, 350),
